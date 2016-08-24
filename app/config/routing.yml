@@ -1,0 +1,4 @@
+phpbdd_poster:
+    resource: "@PHPBDDPosterBundle/Resources/config/routing.yml"
+    prefix:   /
+

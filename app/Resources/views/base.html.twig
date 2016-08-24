@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>PHP-BDD</title>
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        {% block stylesheets %}
+            <link href="{{ asset('css/base.css') }}" type="text/css" rel="stylesheet">
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        <section class="wrapper">
+            <section class="main">
+                {% block main %}{% endblock %}
+            </section>
+            <section class="editor_container">
+                {% block editor_container %}{% endblock %}
+            </section>
+        </section>
+    </body>
+    {% block javascripts %}{% endblock %}
+</html>
