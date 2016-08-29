@@ -18,7 +18,7 @@ class ContentController extends Controller
             ->addOrderBy('b.created', 'DESC')
             ->getQuery()
             ->getResult();
-        $image_dir = __DIR__.'/../../../../web/image';
+        $image_dir = __DIR__.'/../../../../web/images';
         $post = new Posts();
         $form = $this->createForm(PostsType::class, $post);
         if ($request->isMethod($request::METHOD_POST))

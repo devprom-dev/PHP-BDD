@@ -8,27 +8,25 @@
                 <h2><a href="{{ path('phpbdd_poster_homepage', { 'id': blog.id }) }}">{{ blog.title }}</a></h2>
             </header>
 
-            <img src="{{ asset(['/image/', blog.image]|join) }}" />
+            <img src="{{ asset(['/images/', blog.image]|join) }}" />
             <div class="snippet">
-                <p>{{ blog.blog(500) }}</p>
-                <p class="continue"><a href="{{ path('phpbdd_poster_homepage', { 'id': blog.id }) }}">Continue reading...</a></p>
+                <p>{{ blog.blog }}</p>
             </div>
 
             <footer class="meta">
-                <p>Comments: -</p>
                 <p>Posted by <span class="highlight">{{blog.author}}</span> at {{ blog.created|date('h:iA') }}</p>
                 <p>Tags: <span class="highlight">{{ blog.tags }}</span></p>
             </footer>
         </article>
     {% else %}
-        <p>There are no blog entries for symblog</p>
+        <p>There are no blog entries</p>
     {% endfor %}
 {% endblock %}
 {% block editor_container %}
     {{ form_start(form, { 'action': path('phpbdd_poster_homepage'), 'method': 'POST', 'attr': {'class': 'editor'} }) }}
     {{ form_errors(form) }}
     {{ form_row(form.title) }}
-    {{ form_row(form.blog) }}
+    {{ form_row(form.blog, { 'attr': {'maxlength': '500'} }) }}
     {{ form_row(form.image) }}
     {{ form_row(form.tags) }}
     {{ form_rest(form) }}
