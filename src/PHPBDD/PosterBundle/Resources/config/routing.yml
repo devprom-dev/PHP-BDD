@@ -1,3 +1,0 @@
-phpbdd_poster_homepage:
-    path:     /
-    defaults: { _controller: PHPBDDPosterBundle:Content:index }
