@@ -1,7 +1,7 @@
 #!groovy
 node {
-    stage 'Checkout'
-        checkout scm
-        echo '${env.NODE_ENV}'
+    stage 'Checkout' {
         sh 'ls'
+        sh 'cp parameters.yml ./base/php-bdd/app/config/'
+    }
 }
