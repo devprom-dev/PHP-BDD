@@ -1,6 +1,6 @@
 #!groovy
 node {
-    stage 'Checkout' {
+    stage('Checkout') {
         sh 'ls'
         sh 'cp parameters.yml ./base/php-bdd/app/config/'
     }
