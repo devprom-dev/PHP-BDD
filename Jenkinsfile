@@ -1,6 +1,7 @@
-node {
-    stage "first step"
-    def mvnHome = tool 'M3'
-    env.PATH = "${mvnHome}/bin:${env.PATH}"
-    echo "${env.PATH}"
+node('node') {
+    stage 'Checkout'
+        checkout scm
+    stage 'Test'
+        echo env.NODE_ENV
+        sh 'ls'
 }
