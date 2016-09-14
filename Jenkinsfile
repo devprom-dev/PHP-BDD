@@ -1,4 +1,6 @@
 node {
     stage "first step"
-    sh "cp parameters.yml base/php-bdd/app/config/"
+    def mvnHome = tool 'M3'
+    env.PATH = "${mvnHome}/bin:${env.PATH}"
+    echo "${env.PATH}"
 }
