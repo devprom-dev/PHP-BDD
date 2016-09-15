@@ -16,7 +16,7 @@ node {
             docker exec `docker ps -q -f name=.base.` php app/console doctrine:fixtures:load
         '''
     }
-    stage('Run tests') {
+    stage('Create testdb and run tests') {
         sh '''
             docker exec `docker ps -q -f name=.base.` php app/console doctrine:database:drop --force --if-exists --env=test
             docker exec `docker ps -q -f name=.base.` php app/console doctrine:database:create --env=test
@@ -31,9 +31,12 @@ node {
             '''
         }
     }
-    stage('Stop docker containers') {
+    stage('Stop and cleanup docker containers') {
         sh '''
             docker-compose stop
+            docker ps --filter status=dead --filter status=exited -aq | xargs -r docker rm -v
+            docker images --no-trunc | grep '<none>' | awk '{ print $3 }' | xargs -r docker rmi
+            docker volume ls -qf dangling=true | xargs -r docker volume rm
         '''
     }
 }
