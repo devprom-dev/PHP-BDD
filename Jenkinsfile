@@ -1,7 +1,8 @@
 #!groovy
 node {
     stage('Checkout') {
-        sleep(20)
+        def file = new File( 'parameter.yml' )
+        while (!file.exists()) sleep(1)
         sh '''
             cp parameters.yml ./base/php-bdd/app/config/
             cd ./base/php-bdd/
