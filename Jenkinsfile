@@ -25,8 +25,10 @@ node {
             docker exec `docker ps -q -f name=.base.` bin/phpunit -c app/
         '''
         wrap([$class: 'Xvfb']) {
-            sh 'cd base/php-bdd/'
-            sh 'bin/behat --config app/config/behat.yml'
+            sh '''
+                cd base/php-bdd/
+                bin/behat --config app/config/behat.yml
+            '''
         }
     }
     stage('Stop docker containers') {
