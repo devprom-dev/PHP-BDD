@@ -1,5 +1,6 @@
 #!groovy
 node {
+wrap([$class: 'Xvfb']) {
     stage('Checkout') {
         checkout scm
     }
@@ -31,5 +32,6 @@ node {
         sh '''
             docker-compose stop
         '''
+    }
     }
 }
