@@ -26,6 +26,7 @@ node {
         '''
         wrap([$class: 'Xvfb']) {
             sh '''
+                export DISPLAY=:0
                 cd base/php-bdd/
                 bin/behat --config app/config/behat.yml
             '''
