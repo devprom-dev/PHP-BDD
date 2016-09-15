@@ -1,7 +1,7 @@
 #!groovy
 node {
     stage('Checkout') {
-        sleep(20000)
+        sleep(20)
         sh '''
             cp parameters.yml ./base/php-bdd/app/config/
             cd ./base/php-bdd/
