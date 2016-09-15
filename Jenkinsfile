@@ -16,4 +16,20 @@ node {
             docker exec `docker ps -q -f name=.base.` php app/console doctrine:fixtures:load
         '''
     }
+    stage('Run tests') {
+        sh '''
+            docker exec `docker ps -q -f name=.base.` php app/console doctrine:database:drop --force --if-exists --env=test
+            docker exec `docker ps -q -f name=.base.` php app/console doctrine:database:create --env=test
+            docker exec `docker ps -q -f name=.base.` php app/console doctrine:schema:update --force --env=test
+            docker exec `docker ps -q -f name=.base.` php app/console doctrine:fixtures:load --env=test
+            docker exec `docker ps -q -f name=.base.` bin/phpunit -c app/
+            cd base/php-bdd/
+            bin/behat --config app/config/behat.yml
+        '''
+    }
+    stage('Stop docker containers') {
+        sh '''
+            docker-compose stop
+        '''
+    }
 }
