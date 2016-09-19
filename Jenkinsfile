@@ -23,13 +23,9 @@ node {
             docker exec `docker ps -q -f name=.base.` php app/console doctrine:schema:update --force --env=test
             docker exec `docker ps -q -f name=.base.` php app/console doctrine:fixtures:load --env=test
             docker exec `docker ps -q -f name=.base.` bin/phpunit -c app/
+            cd base/php-bdd/
+            bin/behat --config app/config/behat.yml
         '''
-        wrap([$class: 'Xvfb']) {
-            sh '''
-                cd base/php-bdd/
-                bin/behat --config app/config/behat.yml
-            '''
-        }
     }
     stage('Stop and cleanup docker containers') {
         sh '''
