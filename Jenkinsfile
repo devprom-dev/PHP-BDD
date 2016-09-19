@@ -27,12 +27,9 @@ node {
             bin/behat --config app/config/behat.yml
         '''
     }
-    stage('Stop and cleanup docker containers') {
+    stage('Stop docker containers') {
         sh '''
             docker-compose stop
-            docker ps --filter status=dead --filter status=exited -aq | xargs -r docker rm -v
-            docker images --no-trunc | grep '<none>' | awk '{ print $3 }' | xargs -r docker rmi
-            docker volume ls -qf dangling=true | xargs -r docker volume rm
         '''
     }
 }
