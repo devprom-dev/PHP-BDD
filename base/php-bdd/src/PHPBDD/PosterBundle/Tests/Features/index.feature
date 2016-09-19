@@ -13,6 +13,6 @@ Feature: Symple Blog
       | post[blog]  | Lorem ipsum dolor sit amet, consectetur adipiscing elittibulum vulputate mauris eget erat congue dapibus imperdiet justo scelerisque. |
       | post[tags]  | binary, one, zero, alive, dead, !trusting, movie, symblog                                                                             |
     And I attach the file "one_or_zero.jpg" to "post[image]"
-    And I press "Submit"
+    And I submit the form
     Then I should see first post header with followed text "You're either a one or a zero. Alive or dead"
     And I should see first post with followed content "Lorem ipsum dolor sit amet, consectetur adipiscing elittibulum vulputate mauris eget erat congue dapibus imperdiet justo scelerisque."

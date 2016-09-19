@@ -2,6 +2,7 @@
 
 namespace PHPBDD\PosterBundle\Tests\Features\Context;
 
+use Behat\Behat\Tester\Exception\PendingException;
 use Behat\MinkExtension\Context\MinkContext;
 use Behat\Behat\Context\Context;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -96,5 +97,15 @@ class FeatureContext extends MinkContext implements Context, KernelAwareContext
         $xpath = "//article[1]/header/h2/a";
         $el = $this->getSession()->getPage()->find('xpath', $xpath);
         Assert::assertEquals($el->getText(), $text);
+    }
+
+    /**
+     * @Given /^I submit the form$/
+     */
+    public function iSubmitTheForm()
+    {
+        $xpath = "//form//input[@type='submit']";
+        $el = $this->getSession()->getPage()->find('xpath', $xpath);
+        $el->click();
     }
 }
