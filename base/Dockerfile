@@ -6,7 +6,7 @@ COPY php.ini /usr/local/etc/php/
 COPY phpbdd.conf /etc/apache2/sites-available/
 COPY php-bdd /var/www/repo/
 COPY parameters.yml /var/www/repo/app/config/
-COPY wait-for-it.sh
+COPY wait-for-it.sh /root/
 
 RUN a2enmod rewrite
 RUN a2ensite phpbdd
