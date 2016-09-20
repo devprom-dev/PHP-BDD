@@ -11,6 +11,7 @@ node {
             cd ../../
             docker-compose build
             docker-compose up -d
+            docker exec `docker ps -q -f name=.base.` /root/wait-for-it.sh 0.0.0.0:3306 --
             docker exec `docker ps -q -f name=.base.` php app/console doctrine:database:drop --force --if-exists
             docker exec `docker ps -q -f name=.base.` php app/console doctrine:database:create
             docker exec `docker ps -q -f name=.base.` php app/console doctrine:schema:update --force
