@@ -9,7 +9,8 @@ node {
             cd ./base/php-bdd/
             composer install
             cd ../../
-            docker-compose up -d --build
+            docker-compose build
+            docker-compose up -d
             docker exec `docker ps -q -f name=.base.` php app/console doctrine:database:drop --force --if-exists
             docker exec `docker ps -q -f name=.base.` php app/console doctrine:database:create
             docker exec `docker ps -q -f name=.base.` php app/console doctrine:schema:update --force
