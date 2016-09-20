@@ -11,7 +11,7 @@ default:
         Behat\Symfony2Extension: ~
         Behat\MinkExtension:
             files_path: %paths.base%/../../web/images
-            base_url: http://phpbdd.test:8000/
+            base_url: http://localhost:8000/
             sessions:
                 default:
                     symfony2: ~
