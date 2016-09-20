@@ -2,8 +2,8 @@ FROM ubuntu:latest
 
 RUN apt-get update && apt-get install -y apache2 php7.0 libapache2-mod-php7.0 mysql-client php7.0-mysql php7.0-mcrypt php-xml php-mbstring php-curl php-zip git
 
-RUN rm -f /etc/apache/sites-enabled/*
-RUN rm -f /etc/apache/sites-available/*
+RUN rm -f /etc/apache2/sites-enabled/*
+RUN rm -f /etc/apache2/sites-available/*
 COPY php.ini /usr/local/etc/php/
 COPY phpbdd.conf /etc/apache2/sites-available/
 COPY php-bdd /var/www/repo/
