@@ -1,8 +1,8 @@
-Feature: Symple Blog
+Feature: Simple Blog
 
   Scenario: Checking opening of homepage
     Given I am on the homepage
-    Then I should see header with followed text "Symple Blog"
+    Then I should see header with followed text "Simple Blog"
     And I should see first post header with followed text "The grid - A digital frontier"
     And I should see first post with followed content "Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel ports. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut velocity magna. Etiam vehicula nunc non leo hendrerit commodo. Vestibulum vulputate mauris eget erat congue dapibus imperdiet justo scelerisque. Nulla consectetur tempus nisl vitae viverra. Cras el mauris eget erat congue dapibus imperdiet justo scelerisque. Nulla consectetur tempus nisl vitae viverra. Cras elementum molestie vestibulum."
 

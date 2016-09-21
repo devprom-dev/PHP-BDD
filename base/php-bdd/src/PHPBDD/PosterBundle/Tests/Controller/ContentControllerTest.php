@@ -10,7 +10,7 @@ class ContentControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/');
-        $this->assertEquals(1, $crawler->filter('h1:contains("Symple Blog")')->count());
+        $this->assertEquals(1, $crawler->filter('h1:contains("Simple Blog")')->count());
     }
 
     public function testPostsExists()
