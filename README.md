@@ -12,7 +12,7 @@
 - Загрузить с помощью `scp` со своей машины на целевую
 - Загузить с помощью `wget` с GitHub
 
-Ниже пример как достигнуть этого спомощью `wget`
+Ниже пример как достигнуть этого с помощью `wget`
 
 ```sh
 user@ci-server:~$ wget https://raw.githubusercontent.com/ITAttractor/PHP-BDD/master/provision.sh
@@ -27,20 +27,36 @@ user@ci-server:~$ sudo ./provision.sh
 
 Далее скрипт выполнит установку всех необходимых компонентов.
 
-### Настройка окружения
+### Настройка Jenkins
 
 После установки окружения нужно настроить Jenkins. Для этого необходимо зайти в веб интерфес Jenkins, по умолчанию доступен на порту 8080\. Например: `http://172.29.0.10:8080`
 
-Далее нужно создать конфигурацию для билда.
+Далее создать конфигурацию для билда, для этого нужно.
 
-New Item -> Pipeline. Далее настроить параметры для Pipeline.
+1. Кликнуть по ссылке `New Item`.
 
-Параметр       | Значение
-:------------- | :------------------------
-Defenition     | Pipeline script from SCM
-SCM            | Git
-Repository URL | `<ссылка_на_репозиторий>`
-Script Path    | Jenkinsfile
+![][new-item-screenshot]
+
+2. Ввести название build-таска, выбрать тип(`Pipeline`) и создать его.
+
+![][create-build-task-screenshot]
+
+3. Ввести параметры для пайплайна и сохранить.
+
+№  | Параметр       | Значение
+-: | :------------- | :------------------------
+1  | Defenition     | Pipeline script from SCM
+2  | SCM            | Git
+3  | Repository URL | `<ссылка_на_репозиторий>`
+4  | Script Path    | Jenkinsfile
+
+![][set-task-settings-screenshot]
+
+5. Запустить билд
+
+![][start-build-screenshot]
+
+*Первый билд длится более длительное время чем обычно, это связано с тем, что скачиваются зависимоти для docker-контейнеров и php.*
 
 ## Окружение на котором производлась разработка и тестирование
 
@@ -49,3 +65,8 @@ Script Path    | Jenkinsfile
 - PHP 7.0
 - Docker 1.12.1
 - Symfony 2.8
+
+[create-build-task-screenshot]: /manual-screenshots/2.png
+[new-item-screenshot]: /manual-screenshots/1.png
+[set-task-settings-screenshot]: /manual-screenshots/3.png
+[start-build-screenshot]: /manual-screenshots/4.png
