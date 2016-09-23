@@ -43,12 +43,12 @@ user@ci-server:~$ sudo ./provision.sh
 
 3. Ввести параметры для пайплайна и сохранить.
 
-№  | Параметр       | Значение
--: | :------------- | :------------------------
-1  | Defenition     | Pipeline script from SCM
-2  | SCM            | Git
-3  | Repository URL | `<ссылка_на_репозиторий>`
-4  | Script Path    | Jenkinsfile
+№   | Параметр       | Значение
+--: | :------------- | :------------------------
+1   | Defenition     | Pipeline script from SCM
+2   | SCM            | Git
+3   | Repository URL | `<ссылка_на_репозиторий>`
+4   | Script Path    | Jenkinsfile
 
 ![][set-task-settings-screenshot]
 
