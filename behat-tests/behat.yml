@@ -1,0 +1,10 @@
+default:
+    extensions:
+        Behat\MinkExtension:
+            files_path: %paths.base%/../base/php-bdd/web/images
+            base_url: http://localhost:8000/
+            javascript_session: selenium2
+            browser_name: firefox
+            sessions:
+                selenium2:
+                    selenium2: ~

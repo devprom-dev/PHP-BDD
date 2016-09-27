@@ -4,10 +4,10 @@ RUN apt-get update && apt-get install -y apache2 php7.0 libapache2-mod-php7.0 my
 
 RUN rm -f /etc/apache2/sites-enabled/*
 RUN rm -f /etc/apache2/sites-available/*
+
 COPY php.ini /usr/local/etc/php/
 COPY phpbdd.conf /etc/apache2/sites-available/
 COPY php-bdd /var/www/repo/
-COPY parameters.yml /var/www/repo/app/config/
 COPY wait-for-it.sh /root/
 
 RUN a2enmod rewrite

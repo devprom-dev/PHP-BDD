@@ -12,3 +12,5 @@ base/php-bdd/bin/
 base/php-bdd/composer.phar
 /.idea
 base/php-bdd/phpunit-report
+behat-tests/bin
+behat-tests/vendor
