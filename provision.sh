@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-SELENIUM_PATH=/opt/selenium-server-standalone-2.53.1.jar
+SELENIUM_PATH=/opt/selenium-server-standalone.jar
 
 set -e
 
@@ -10,7 +10,11 @@ fi
 
 echo "# Installing system requirements"
 apt-get update
-apt-get install -y apt-transport-https ca-certificates linux-image-extra-$(uname -r) linux-image-extra-virtual xvfb php7.0 mysql-client php7.0-mysql php7.0-mcrypt php-xml php-mbstring php-curl php-zip python-pip openjdk-8-jre-headless firefox
+apt-get install -y apt-transport-https ca-certificates linux-image-extra-$(uname -r) linux-image-extra-virtual xvfb php7.0 mysql-client php7.0-mysql php7.0-mcrypt php-xml php-mbstring php-curl php-zip python-pip openjdk-8-jre-headless
+
+echo "# Installing firefox "
+wget https://sourceforge.net/projects/ubuntuzilla/files/mozilla/apt/pool/main/f/firefox-mozilla-build/firefox-mozilla-build_48.0.2-0ubuntu1_amd64.deb -O firefox.deb
+dpkg -i firefox.deb
 
 echo "# Installing composer"
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
