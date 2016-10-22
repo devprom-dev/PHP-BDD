@@ -9,8 +9,10 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 echo "# Installing system requirements"
+apt install software-properties-common
+add-apt-repository ppa:ondrej/php
 apt-get update
-apt-get install -y apt-transport-https ca-certificates linux-image-extra-$(uname -r) linux-image-extra-virtual xvfb php7.0 mysql-client php7.0-mysql php7.0-mcrypt php-xml php-mbstring php-curl php-zip python-pip openjdk-8-jre-headless libgtk-3-0 libasound2
+apt-get install -y apt-transport-https ca-certificates linux-image-extra-$(uname -r) linux-image-extra-virtual xvfb mysql-client php5.6 php5.6-mysql php5.6-mcrypt php5.6-xml php5.6-mbstring php5.6-curl php5.6-zip python-pip openjdk-8-jre-headless libgtk-3-0 libasound2
 
 echo "# Installing firefox "
 wget https://sourceforge.net/projects/ubuntuzilla/files/mozilla/apt/pool/main/f/firefox-mozilla-build/firefox-mozilla-build_47.0.1-0ubuntu1_amd64.deb -O firefox.deb
