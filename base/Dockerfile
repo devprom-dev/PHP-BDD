@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
 RUN apt-get update
-RUN apt install -f software-properties-common
+RUN apt-get install -y software-properties-common
 RUN add-apt-repository ppa:ondrej/php -y
 RUN apt-get update
 RUN apt-get install -y apache2 php5.6 php5.6-mysql php5.6-mcrypt php5.6-xml php5.6-mbstring php5.6-curl php5.6-zip libapache2-mod-php5.6 mysql-client git
