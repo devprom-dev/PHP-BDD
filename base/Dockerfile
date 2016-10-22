@@ -1,6 +1,7 @@
 FROM ubuntu:latest
 
-RUN apt install software-properties-common && add-apt-repository ppa:ondrej/php
+RUN apt install software-properties-common
+RUN add-apt-repository ppa:ondrej/php
 RUN apt-get update && apt-get install -y apache2 php5.6 php5.6-mysql php5.6-mcrypt php5.6-xml php5.6-mbstring php5.6-curl php5.6-zip libapache2-mod-php5.6 mysql-client git
 
 RUN rm -f /etc/apache2/sites-enabled/*
