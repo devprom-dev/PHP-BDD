@@ -1,4 +1,4 @@
-FROM ubuntu:trusty
+FROM ubuntu:latest
 
 RUN apt-get update
 RUN apt-get install -y apache2 php5 php5-mysql php5-curl mysql-client git
