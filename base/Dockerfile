@@ -1,7 +1,7 @@
 FROM ubuntu:trusty
 
 RUN apt-get update
-RUN apt-get install -y apache2 php5 php5-mysql php5-mcrypt php5-xml php5-mbstring php5-curl php5-zip mysql-client git
+RUN apt-get install -y apache2 php5 php5-mysql php5-curl mysql-client git
 
 RUN rm -f /etc/apache2/sites-enabled/*
 RUN rm -f /etc/apache2/sites-available/*
